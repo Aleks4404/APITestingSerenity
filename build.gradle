@@ -1,6 +1,7 @@
 plugins {
-    id "net.serenity-bdd.serenity-gradle-plugin" version "2.5.10"
     id 'java'
+    id "net.serenity-bdd.serenity-gradle-plugin" version "2.5.10"
+    id 'io.freefair.lombok' version '5.2.1'
 }
 
 group 'org.example'
@@ -24,7 +25,7 @@ dependencies {
     implementation 'net.serenity-bdd:serenity-core:2.0.80'
     implementation 'org.slf4j:slf4j-simple:1.7.7'
     implementation 'net.serenity-bdd:serenity-rest-assured:2.0.80'
-
+    compileOnly 'org.projectlombok:lombok:1.18.20'
 }
 
 test {
