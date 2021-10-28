@@ -24,10 +24,4 @@
 ### Запуск тестов
 
 Ввести команду в терминале.  
-> ./gradlew test
-> 
-> 
-> ./gradlew clean integration-test serenity:aggregate
-
-
- 
+> ./gradlew test 
