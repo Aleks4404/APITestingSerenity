@@ -1,27 +1,33 @@
 plugins {
     id "net.serenity-bdd.serenity-gradle-plugin" version "2.5.10"
     id 'java'
-    id 'eclipse'
-    id 'idea'
 }
-
-sourceCompatibility = 11
 
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+sourceCompatibility = 11
+targetCompatibility = 11
+
 repositories {
+    mavenLocal()
     mavenCentral()
+    jcenter()
+    maven {
+        url 'https://jitpack.io'
+    }
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-    testCompile group: 'net.serenity-bdd', name: 'serenity-core', version: '1.8.21'
-    testCompile group: 'net.serenity-bdd', name: 'serenity-junit', version: '1.8.21'
-    testCompile group: 'net.serenity-bdd', name: 'serenity-rest-assured', version: '1.8.21'
+    implementation 'net.serenity-bdd:serenity-junit:2.0.80'
+    implementation 'net.serenity-bdd:serenity-cucumber:1.9.45'
+    implementation 'net.serenity-bdd:serenity-core:2.0.80'
+    implementation 'org.slf4j:slf4j-simple:1.7.7'
+    implementation 'net.serenity-bdd:serenity-rest-assured:2.0.80'
+
 }
 
 test {
-    useJUnitPlatform()
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
 }
